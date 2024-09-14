@@ -2,9 +2,6 @@ package ar.edu.utn.dds.k3003;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.slf4j.LoggerFactory;
-import org.slf4j.event.Level;
-
 import io.javalin.Javalin;
 import io.javalin.http.HttpStatus;
 import io.javalin.micrometer.MicrometerPlugin;
@@ -15,8 +12,6 @@ public class TransferenciasApp {
 
 	public static void main(final String... args) {
 		
-		LoggerFactory.getLogger("ar.edu.utn.dds.k3003").atLevel(Level.INFO);
-		
 		log.info("starting up the server");
 
 		final var metricsUtils = new DDMetricsUtils("transferencias");
@@ -24,7 +19,6 @@ public class TransferenciasApp {
 
 		// Metricas
 		final var myGauge = registry.gauge("dds.unGauge", new AtomicInteger(0));
-		
 
 		// Config
 		final var micrometerPlugin = new MicrometerPlugin(config -> config.registry = registry);
@@ -39,6 +33,7 @@ public class TransferenciasApp {
 			var number = ctx.pathParamAsClass("number", Integer.class).get();
 			myGauge.set(number);
 			ctx.result("updated number: " + number.toString());
+			log.info("valor gauge cambiado");
 		});
 		
 				
