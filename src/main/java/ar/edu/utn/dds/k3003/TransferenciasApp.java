@@ -39,8 +39,9 @@ public class TransferenciasApp {
 				
 		javalinServer.post("/transaction", ctx -> {
 			log.debug("procesando transferencia");
-			var transferencia = ctx.bodyAsClass( TransferDTO.class);
+			
 			try {
+				var transferencia = ctx.bodyAsClass( TransferDTO.class);
 				transferir(transferencia);
 				registry.counter("dds.transferencias","status","ok").increment();
 				log.info("transferencia ok!");
