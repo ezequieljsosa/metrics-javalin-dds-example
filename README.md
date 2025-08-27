@@ -19,7 +19,7 @@ mvn clean package exec:java
 ## Integración con Datadog
 
 Desde Datadog, para arrancar necesitamos crear una cuenta y obtener un token de acceso. En el proceso de obtener el token de acceso, les va a proponer que creen un agente, pero no hace falta para utilizar este repositorio (si necesitan obtener de las instrucciones la API KEY).
-Vamos a usar el mecanismo de integracion mas basico, que consiste en enviar las metricas directamente a la plataforma.
-En produccion, se debe implementar un agente que recopile informacion y envie periodicamente la información a DD.
+Vamos a usar el mecanismo de integracion mas basico, que consiste en enviar las métricas directamente a la plataforma.
+En producción, se debe implementar un agente que recopile los datos y envie periodicamente la información a DD.
 
 La clave la tenemos que configurar en la variable de entorno DDAPI.
