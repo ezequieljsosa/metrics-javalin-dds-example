@@ -58,7 +58,7 @@ public class TransferenciasApp {
 		});
 
 		
-		javalinServer.start(7070);
+		javalinServer.start(8080);
 	}
 
 	private static void transferir(TransferDTO transferencia) throws ApprovalException  {
